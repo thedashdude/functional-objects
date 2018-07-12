@@ -66,62 +66,6 @@ Unlike `CreateObject_`, `CreateSubClass_` doesn't create a functional object. In
 
 
 
-## USING OBJECTS
-All functionality of a functional object is achieved through calling it. Calling a functional object takes a different number arguments depending on what you are doing, but the first argument is always the object itself.
-```python3
-MyObject(MyObject, <other arguments>)
-```
-The next argument is a string, either `'get'`, `'set'`, `'call'`, `'dump'`, or `'kind'`.\
-These can also be written cleaner as constants `Get_`, `Set_`, `Call_`, `Dump_`, and `Kind_`. 
-
-#### GET
-Requires just one extra argument, a string. This is the name of the variable to return.
-```python3
-k = MyObject(MyObject, 'get', 'x')
-print(k)
-```
-Outputs `5`
-
-#### SET
-Requires two extra arguments, a name to access, and a value to to asign it. Returns the value that it assigned, although the return is not often used.
-```python3
-MyObject(MyObject, 'set', 'x', 6)
-k = MyObject(MyObject, 'get', 'x')
-print(k)
-```
-Outputs `6`
-
-#### CALL
-Requires one argument, the function to call, and any number of other arguments, depending on the requirements of the function being called. Returns whatever the called function returns.
-```python3
-s = MyObject(MyObject, 'call', 'hello', 'My Dude')
-print(s)
-```
-Outputs `Hello, My Dude, my name is MyName`
-
-#### DUMP
-No arguments required, returns `varis`, `funcs`. That is, all the data contained by the object. Little practical uses, good for testing.
-
-```python3
-print(MyObject(MyObject, 'dump'))
-```
-Outputs `({'name': 'MyName', 'y': 3, 'x': 6}, {'hello': <function hello at 0x7f3abf7b3e18>, 'prod': <function prod at 0x7f3abf7a47b8>})`
-
-#### KIND
-No other arguments. Returns the type assigned to the object at creation or by its class.
-```python3
-print(MyObject(MyObject, 'kind'))
-print(MyInstance(MyInstance, 'kind'))
-```
-
-Outputs `Generic` then `MyClass`
-
-
-
-
-
-
-
 ## STYLING
 When defining an object, use the constant `_DefiningObject` in an if statement, so as to indent everything used to define the object. Before the if, define an empty function with the name of the object, so that the block is clearly titled.
 
@@ -182,3 +126,55 @@ MyOtherSub = MySubClass()
 ```
 
 And yes, `DefiningClass_` and `DefiningObject_` are both `True`.
+
+
+## USING OBJECTS
+All functionality of a functional object is achieved through calling it. Calling a functional object takes a different number arguments depending on what you are doing, but the first argument is always the object itself.
+```python3
+MyObject(MyObject, <other arguments>)
+```
+The next argument is a string, either `'get'`, `'set'`, `'call'`, `'dump'`, or `'kind'`.\
+These can also be written cleaner as constants `Get_`, `Set_`, `Call_`, `Dump_`, and `Kind_`. 
+
+#### GET
+Requires just one extra argument, a string. This is the name of the variable to return.
+```python3
+k = MyObject(MyObject, 'get', 'x')
+print(k)
+```
+Outputs `5`
+
+#### SET
+Requires two extra arguments, a name to access, and a value to to asign it. Returns the value that it assigned, although the return is not often used.
+```python3
+MyObject(MyObject, 'set', 'x', 6)
+k = MyObject(MyObject, 'get', 'x')
+print(k)
+```
+Outputs `6`
+
+#### CALL
+Requires one argument, the function to call, and any number of other arguments, depending on the requirements of the function being called. Returns whatever the called function returns.
+```python3
+s = MyObject(MyObject, 'call', 'hello', 'My Dude')
+print(s)
+```
+Outputs `Hello, My Dude, my name is MyName`
+
+#### DUMP
+No arguments required, returns `varis`, `funcs`. That is, all the data contained by the object. Little practical uses, good for testing.
+
+```python3
+print(MyObject(MyObject, 'dump'))
+```
+Outputs `({'name': 'MyName', 'y': 3, 'x': 6}, {'hello': <function hello at 0x7f3abf7b3e18>, 'prod': <function prod at 0x7f3abf7a47b8>})`
+
+#### KIND
+No other arguments. Returns the type assigned to the object at creation or by its class.
+```python3
+print(MyObject(MyObject, 'kind'))
+print(MyInstance(MyInstance, 'kind'))
+```
+
+Outputs `Generic` then `MyClass`
+
