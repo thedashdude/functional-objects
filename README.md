@@ -1,13 +1,13 @@
 # ObFuncs_
-ObFuncs_ provides much needed (albeit already implemented) object orientation to python.
-The difference between the already implemented class structure in python and ObFuncs_ is that ObFuncs_ is terrible.
+`ObFuncs_` provides much needed (albeit already implemented) object orientation to python.
+The difference between the already implemented class structure in python and `ObFuncs_` is that `ObFuncs_` is terrible.
 While it provides objects with variables, methods, referencing, and inheritance, it does so only through clever ~~abuse~~ use of functions and closures.
 
 The following documentation/tutorial is adapted from `docs.py`, which allows the examples to be run and verify results.
 
 Several test of functionality are in `tests.py`.
 
-ObFuncs_ is tested in Python 3 thoroughly, and apears to work in Python 2 as well.
+`ObFuncs_` is tested in Python 3 thoroughly, and apears to work in Python 2 as well.
 
 ## SET UP
 To import all required methods and constants, it is suggested that you use
@@ -17,36 +17,49 @@ from ObFuncs_ import *
 so that creation of objects is as clear as possible
 
 ## PROVIDED METHODS
-Objects can be created with the CreateObject_ function.
+
+#### Objects
+Objects can be created with the `CreateObject_` function.
 It take two arguments, and an optional third one.
-Arguments:
-* `varis`: A dictionary that lists the name of all variables the object should have, and their initial values
-* `funcs`: A dictionary that lists the name of all methods the object should have, and a reference to the functions
-* `kind`: A string that represents the type of object created. Defaults to `"Generic"`
+
+`arg` | Meaning
+------- | -------
+`varis` | A dictionary that lists the name of all variables the object should have, and their initial values
+`funcs` | A dictionary that lists the name of all methods the object should have, and a reference to the functions
+`kind` | A string that represents the type of object created. Defaults to `"Generic"`
 	
 The functions in funcs should take two arguments.
-* `me`: The object itself is passed when a method is called. The name `me` is of course just a convention, any name will work
-* `args`: A list of arguments. Naming is again just a convention
+
+`arg` | Meaning
+----- | -------
+`me` | The object itself is passed when a method is called. The name `me` is of course just a convention, any name will work
+`args` | A list of arguments. Naming is again just a convention
+
+
 `CreateObject_` returns a functional object.
 
-
+#### Classes
 Classes can be created with the `CreateClass_` function.
 It take two arguments, and an optional third one.
-Arguments:
-*	`Varis`: A dictionary that lists the name of all variables the objects in the class should have, and their initial values
-* `Funcs`: A dictionary that lists the name of all methods the object in the class should have, and a reference to the functions
-*	`Kind`: A string that represents the type of objects created. Defaults to `"Generic"`
+
+`arg` | Meaning
+----- | -------
+`Varis` | A dictionary that lists the name of all variables the objects in the class should have, and their initial values
+`Funcs` | A dictionary that lists the name of all methods the object in the class should have, and a reference to the functions
+`Kind` | A string that represents the type of objects created. Defaults to `"Generic"`
  	
 Unlike `CreateObject_`, `CreateClass_` doesn't create a functional object. Instead, it returns a constructor function, that when called (with no arguments) will return an object with the default variables and functions of the class.
 
-
+#### SubClasses
 SubClasses can be created with the `CreateSubClass_` function.
 It take three arguments, and an optional fourth one.
-Arguments:
-*	`Class`: A class function (created by `CreateClass_` or `CreateSubClass_`) that serves as the parent of the new class
-* `Varis`: A dictionary that lists the name of all the new variables the objects in the class should have, and their initial values. Any variables that share names with variables of the parent class are kept, and used as the new initial value of that variable.
-* `Funcs`: A dictionary that lists the name of all new methods the object in the class should have, and a reference to the functions. Same behavior with regard to conflicts as `Varis`
-* `Kind`: A string that represents the type of objects created. Defaults to the Kind of the parent class.
+
+`arg` | Meaning
+----- | -------
+`Class` | A class function (created by `CreateClass_` or `CreateSubClass_`) that serves as the parent of the new class
+`Varis` | A dictionary that lists the name of all the new variables the objects in the class should have, and their initial values. Any variables that share names with variables of the parent class are kept, and used as the new initial value of that variable.
+`Funcs` | A dictionary that lists the name of all new methods the object in the class should have, and a reference to the functions. Same behavior with regard to conflicts as `Varis`
+`Kind` | A string that represents the type of objects created. Defaults to the Kind of the parent class.
  	
 Unlike `CreateObject_`, `CreateSubClass_` doesn't create a functional object. Instead, it returns a constructor function, that when called (with no arguments) will return an object with the default variables and functions of the class.
 
@@ -56,7 +69,7 @@ Unlike `CreateObject_`, `CreateSubClass_` doesn't create a functional object. In
 ## USING OBJECTS
 All functionality of a functional object is achieved through calling it. Calling a functional object takes a different number arguments depending on what you are doing, but the first argument is always the object itself.
 ```python3
-MyObject(MyObject, '...')
+MyObject(MyObject, <other arguments>)
 ```
 The next argument is a string, either `'get'`, `'set'`, `'call'`, `'dump'`, or `'kind'`.\
 These can also be written cleaner as constants `Get_`, `Set_`, `Call_`, `Dump_`, and `Kind_`. 
@@ -111,7 +124,7 @@ Outputs `Generic` then `MyClass`
 
 ## STYLING
 When defining an object, use the constant `_DefiningObject` in an if statement, so as to indent everything used to define the object. Before the if, define an empty function with the name of the object, so that the block is clearly titled.\
-An Example:
+
 ```python3
 def MyObject(): pass;
 if DefiningObject_:
@@ -128,7 +141,7 @@ if DefiningObject_:
 
 
 When defining a class, use the constant `_DefiningClass` in an if statement. Everything is the same otherwise, except all instances of the class should be created outside the defining block.\
-An Example:
+
 
 ```python3
 def MyClass(): pass;
@@ -153,7 +166,7 @@ MyOtherInstance = MyClass()
 
 
 Subclasses are much like classes, except an argument should be placed in the empty function to indicate the parent.\
-An Example:
+
 ```python3
 def MySub(MyClass): pass;
 if DefiningClass_:
@@ -167,3 +180,5 @@ if DefiningClass_:
 MySub = MySubClass()
 MyOtherSub = MySubClass()
 ```
+
+And yes, `DefiningClass_` and `DefiningObject_` are both `True`.
