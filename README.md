@@ -123,7 +123,7 @@ Outputs `Generic` then `MyClass`
 
 
 ## STYLING
-When defining an object, use the constant `_DefiningObject` in an if statement, so as to indent everything used to define the object. Before the if, define an empty function with the name of the object, so that the block is clearly titled.\
+When defining an object, use the constant `_DefiningObject` in an if statement, so as to indent everything used to define the object. Before the if, define an empty function with the name of the object, so that the block is clearly titled.
 
 ```python3
 def MyObject(): pass;
@@ -140,7 +140,7 @@ if DefiningObject_:
 ```
 
 
-When defining a class, use the constant `_DefiningClass` in an if statement. Everything is the same otherwise, except all instances of the class should be created outside the defining block.\
+When defining a class, use the constant `_DefiningClass` in an if statement. Everything is the same otherwise, except all instances of the class should be created outside the defining block.
 
 
 ```python3
@@ -165,7 +165,7 @@ MyOtherInstance = MyClass()
 ```
 
 
-Subclasses are much like classes, except an argument should be placed in the empty function to indicate the parent.\
+Subclasses are much like classes, except an argument should be placed in the empty function to indicate the parent.
 
 ```python3
 def MySub(MyClass): pass;
