@@ -128,13 +128,16 @@ MyOtherSub = MySubClass()
 And yes, `DefiningClass_` and `DefiningObject_` are both `True`.
 
 
+
+
 ## USING OBJECTS
 All functionality of a functional object is achieved through calling it. Calling a functional object takes a different number arguments depending on what you are doing, but the first argument is always the object itself.
 ```python3
 MyObject(MyObject, <other arguments>)
 ```
 The next argument is a string, either `'get'`, `'set'`, `'call'`, `'dump'`, or `'kind'`.\
-These can also be written cleaner as constants `Get_`, `Set_`, `Call_`, `Dump_`, and `Kind_`. 
+These can also be written cleaner as constants `Get_`, `Set_`, `Call_`, `Dump_`, and `Kind_`. \
+The constants should be used in almost all cases, although for the following examples the strings are used so that the mechanics are clearer.
 
 #### GET
 Requires just one extra argument, a string. This is the name of the variable to return.
